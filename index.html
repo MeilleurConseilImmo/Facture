@@ -92,7 +92,7 @@
      </div><!-- Submit Button -->
      <div class="pt-6 border-t border-slate-200">
       <div class="bg-slate-50 rounded-lg p-4 mb-4">
-       <p class="text-sm text-slate-700 text-center">📧 À transmettre par mail : <span id="email-label" class="font-semibold text-blue-600">admin@meilleurconseil-immo.com</span></p>
+       <p class="text-sm text-slate-700 text-center">À transmettre par mail : <span id="email-label" class="font-semibold text-blue-600">admin@meilleurconseil-immo.com</span></p>
       </div><button type="button" id="print-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl" onclick="printForm()"> 🖨️ Générer le PDF / Imprimer </button>
       <div id="success-message" class="hidden mt-4 bg-green-50 border-l-4 border-green-500 p-4 rounded">
        <p class="text-green-800 font-semibold">✓ Demande soumise avec succès !</p>
@@ -265,16 +265,16 @@
                         .logo-print {
                             position: absolute;
                             top: 20px;
-                            right: 20px;
-                            width: 100px;
-                            height: 100px;
+                            left: 20px;
+                            width: 120px;
+                            height: 120px;
                         }
                         .header {
                             text-align: center;
                             margin-bottom: 15px;
                             border-bottom: 2px solid #2563eb;
                             padding-bottom: 10px;
-                            padding-right: 120px;
+                            padding-left: 120px;
                         }
                         h1 {
                             color: #1e293b;
@@ -388,7 +388,6 @@
 
                     <div class="footer">
                         <p>Document à transmettre à : ${config.email_label || defaultConfig.email_label}</p>
-                        <p>Ce document doit être remis au notaire lors de l'acte authentique</p>
                     </div>
                 </body>
                 </html>
