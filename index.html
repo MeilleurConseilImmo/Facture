@@ -246,96 +246,96 @@
             };
 
             // Créer une fenêtre d'impression avec le contenu formaté
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(`
-                <!DOCTYPE html>
-                <html lang="fr">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Demande de facture - Acte authentique</title>
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            padding: 20px;
-                            color: #333;
-                            line-height: 1.4;
-                            font-size: 11px;
-                            position: relative;
-                        }
-                        .logo-print {
-                            position: absolute;
-                            top: 20px;
-                            left: 20px;
-                            width: 120px;
-                            height: 120px;
-                        }
-                        .header {
-    text-align: center;
-    margin-bottom: 15px;
-    margin-top: 160px;
-    border-bottom: 2px solid #2563eb;
-    padding-bottom: 10px;
-    padding-left: 120px;
-}
-                        h1 {
-                            color: #1e293b;
-                            font-size: 16px;
-                            margin-bottom: 5px;
-                        }
-                        .company {
-                            color: #2563eb;
-                            font-size: 13px;
-                            font-weight: bold;
-                        }
-                        .section {
-                            margin-bottom: 12px;
-                            page-break-inside: avoid;
-                        }
-                        .label {
-                            font-weight: bold;
-                            color: #1e293b;
-                            margin-bottom: 3px;
-                            font-size: 10px;
-                        }
-                        .value {
-                            color: #475569;
-                            padding: 6px;
-                            background-color: #f8fafc;
-                            border-left: 2px solid #2563eb;
-                            margin-bottom: 8px;
-                            font-size: 10px;
-                            white-space: pre-line;
-                        }
-                        .footer {
-                            margin-top: 20px;
-                            padding-top: 10px;
-                            border-top: 1px solid #e2e8f0;
-                            text-align: center;
-                            color: #64748b;
-                            font-size: 9px;
-                        }
-                        .date-print {
-                            text-align: right;
-                            color: #64748b;
-                            font-size: 9px;
-                            margin-bottom: 10px;
-                        }
-                        @media print {
-                            body {
-                                padding: 15px;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <img src="logomci.png" alt="Logo MCI" class="logo-print">
-                    <div class="date-print">Imprimé le ${new Date().toLocaleDateString('fr-FR', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    })}</div>
+const printWindow = window.open('', '_blank');
+printWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demande de facture - Acte authentique</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                color: #333;
+                line-height: 1.4;
+                font-size: 11px;
+                position: relative;
+            }
+            .logo-print {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                width: 120px;
+                height: 120px;
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 15px;
+                margin-top: 160px;
+                border-bottom: 2px solid #2563eb;
+                padding-bottom: 10px;
+                padding-left: 120px;
+            }
+            h1 {
+                color: #1e293b;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+            .company {
+                color: #2563eb;
+                font-size: 13px;
+                font-weight: bold;
+            }
+            .section {
+                margin-bottom: 12px;
+                page-break-inside: avoid;
+            }
+            .label {
+                font-weight: bold;
+                color: #1e293b;
+                margin-bottom: 3px;
+                font-size: 10px;
+            }
+            .value {
+                color: #475569;
+                padding: 6px;
+                background-color: #f8fafc;
+                border-left: 2px solid #2563eb;
+                margin-bottom: 8px;
+                font-size: 10px;
+                white-space: pre-line;
+            }
+            .footer {
+                margin-top: 20px;
+                padding-top: 10px;
+                border-top: 1px solid #e2e8f0;
+                text-align: center;
+                color: #64748b;
+                font-size: 9px;
+            }
+            .date-print {
+                text-align: right;
+                color: #64748b;
+                font-size: 9px;
+                margin-bottom: 10px;
+            }
+            @media print {
+                body {
+                    padding: 15px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <img src="logo-impression.png" alt="Logo MCI" class="logo-print" onerror="this.style.display='none'; this.alt='Logo non disponible';">
+        <div class="date-print">Imprimé le ${new Date().toLocaleDateString('fr-FR', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        })}</div>
                     
                     <div class="header">
                         <h1>Demande de facture de vente pour l'acte authentique</h1>
