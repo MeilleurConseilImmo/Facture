@@ -321,26 +321,21 @@ printWindow.document.write(`
                 margin-bottom: 10px;
             }
             @media print {
-                body {
-                    padding: 15px;
-                }
-            }
+            body { padding: 15px; }
+        }
         </style>
     </head>
     <body>
-        <img src="logo-impression.png" alt="Logo MCI" class="logo-print" onerror="this.style.display='none'; this.alt='Logo non disponible';">
-        <div class="date-print">Imprimé le ${new Date().toLocaleDateString('fr-FR', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        })}</div>
-                    
-                    <div class="header">
-                        <h1>Demande de facture de vente pour l'acte authentique</h1>
-                        <div class="company">${config.company_name || defaultConfig.company_name}</div>
-                    </div>
+        <img src="logo-impression.png" alt="Logo MCI" class="logo-print" onerror="this.style.display='none'">
+
+        <div class="date-print">
+            Imprimé le ${new Date().toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit',year:'numeric'})} à ${new Date().toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'})}
+        </div>
+
+        <div class="header">
+            <h1>Demande de facture de vente pour l'acte authentique</h1>
+            <div class="company">${config.company_name || defaultConfig.company_name}</div>
+        </div>
 
                     <div class="section">
                         <div class="label">1. Nom et prénom du mandataire</div>
