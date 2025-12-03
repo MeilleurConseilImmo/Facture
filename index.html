@@ -233,17 +233,26 @@
             }
 
             // Récupérer les données du formulaire
-            const formData = {
-                nom_mandataire: document.getElementById('nom-mandataire').value,
-                date_signature: document.getElementById('date-signature').value,
-                honoraires_ttc: document.getElementById('honoraires-ttc').value,
-                charge: document.querySelector('input[name="charge"]:checked').value,
-                designation_bien: document.getElementById('designation-bien').value,
-                numero_mandat: document.getElementById('numero-mandat').value,
-                nom_vendeurs: `${document.getElementById('vendeur-nom').value}\n${document.getElementById('vendeur-numero').value} ${document.getElementById('vendeur-voie').value}\n${document.getElementById('vendeur-cp').value} ${document.getElementById('vendeur-ville').value}`,
-                nom_acquereurs: `${document.getElementById('acquereur-nom').value}\n${document.getElementById('acquereur-numero').value} ${document.getElementById('acquereur-voie').value}\n${document.getElementById('acquereur-cp').value} ${document.getElementById('acquereur-ville').value}`,
-                nom_notaire: document.getElementById('nom-notaire').value
-            };
+const formData = {
+    nom_mandataire: document.getElementById('nom-mandataire').value,
+    date_signature: (function() {
+        const rawDate = document.getElementById('date-signature').value;
+        if (!rawDate) return '';
+        const date = new Date(rawDate);
+        return date.toLocaleDateString('fr-FR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    })(),
+    honoraires_ttc: document.getElementById('honoraires-ttc').value,
+    charge: document.querySelector('input[name="charge"]:checked').value,
+    designation_bien: document.getElementById('designation-bien').value,
+    numero_mandat: document.getElementById('numero-mandat').value,
+    nom_vendeurs: `${document.getElementById('vendeur-nom').value}\n${document.getElementById('vendeur-numero').value} ${document.getElementById('vendeur-voie').value}\n${document.getElementById('vendeur-cp').value} ${document.getElementById('vendeur-ville').value}`,
+    nom_acquereurs: `${document.getElementById('acquereur-nom').value}\n${document.getElementById('acquereur-numero').value} ${document.getElementById('acquereur-voie').value}\n${document.getElementById('acquereur-cp').value} ${document.getElementById('acquereur-ville').value}`,
+    nom_notaire: document.getElementById('nom-notaire').value
+};
 
             // Créer une fenêtre d'impression avec le contenu formaté
 const printWindow = window.open('', '_blank');
