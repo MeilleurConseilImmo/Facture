@@ -52,19 +52,16 @@
             <input type="text" id="nom-mandataire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Nom et prénom complets">
           </div>
 
-          <!-- 2. Date -->
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">2. Date de signature de l'acte *</label>
             <input type="date" id="date-signature" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
           </div>
 
-          <!-- 3. Honoraires -->
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">3. Honoraires TTC *</label>
             <input type="text" id="honoraires-ttc" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : 8 400,00 €">
           </div>
 
-          <!-- 4. Charge -->
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">4. Charge *</label>
             <select id="charge" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
@@ -74,52 +71,34 @@
             </select>
           </div>
 
-          <!-- 5. Bien -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">5. Désignation et adresse du bien *</label>
             <textarea id="designation-bien" required rows="3" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"></textarea>
           </div>
 
-          <!-- 6. Mandat -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">6. Numéro du mandat *</label>
             <input type="text" id="numero-mandat" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : V-2025-012">
           </div>
 
-                    <!-- 7. Vendeurs -->
+          <!-- 7. Vendeurs - boutons en bas -->
           <div class="md:col-span-2">
-            <div class="flex justify-between items-center mb-3">
-              <label class="block text-sm font-semibold text-slate-700">7. Nom et adresse des vendeurs *</label>
-              <div class="flex gap-2">
-                <button type="button" onclick="ajouterVendeur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Ajouter</button>
-                <button type="button" onclick="supprimerVendeur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Retirer</button>
-              </div>
-            </div>
+            <label class="block text-sm font-semibold text-slate-700 mb-4">7. Nom et adresse des vendeurs *</label>
             <div id="vendeurs-container"></div>
+            <div class="flex justify-end gap-3 mt-4">
+              <button type="button" onclick="ajouterVendeur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg shadow-sm">Ajouter un vendeur</button>
+              <button type="button" onclick="supprimerVendeur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg shadow-sm">Retirer le dernier</button>
+            </div>
           </div>
 
-          <!-- 8. Acquéreurs -->
+          <!-- 8. Acquéreurs - boutons en bas -->
           <div class="md:col-span-2">
-            <div class="flex justify-between items-center mb-3">
-              <label class="block text-sm font-semibold text-slate-700">8. Nom et adresse des acquéreurs *</label>
-              <div class="flex gap-2">
-                <button type="button" onclick="ajouterAcquereur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Ajouter</button>
-                <button type="button" onclick="supprimerAcquereur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Retirer</button>
-              </div>
-            </div>
+            <label class="block text-sm font-semibold text-slate-700 mb-4">8. Nom et adresse des acquéreurs *</label>
             <div id="acquereurs-container"></div>
-          </div>
-
-          <!-- 8. Acquéreurs -->
-          <div class="md:col-span-2">
-            <div class="flex justify-between items-center mb-3">
-              <label class="block text-sm font-semibold text-slate-700">8. Nom et adresse des acquéreurs *</label>
-              <div class="flex gap-2">
-                <button type="button" onclick="ajouterAcquereur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter</button>
-                <button type="button" onclick="supprimerAcquereur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg">Retirer</button>
-              </div>
+            <div class="flex justify-end gap-3 mt-4">
+              <button type="button" onclick="ajouterAcquereur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg shadow-sm">Ajouter un acquéreur</button>
+              <button type="button" onclick="supprimerAcquereur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg shadow-sm">Retirer le dernier</button>
             </div>
-            <div id="acquereurs-container"></div>
           </div>
 
           <!-- 9. Notaire -->
@@ -143,33 +122,45 @@
   </main>
 
 <script>
-// Variables globales
+// === IDENTIQUE AU FORMULAIRE LOCATION QUI FONCTIONNE PARFAITEMENT ===
 let vendeurCount = 1;
 let acquereurCount = 1;
 
-// Création dynamique des blocs vendeur / acquéreur
-function creerPersonne(type, index, titre) {
-  const prefix = type; // 'vendeur' ou 'acquereur'
-  const classe = type === 'vendeur' ? 'vendeur-item' : 'acquereur-item';
+function creerFormulaireVendeur(index) {
   return `
-    <div class="${classe} space-y-4 p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg border-2 border-slate-200 shadow-sm mb-4" data-index="${index}">
-      <h3 class="font-semibold text-slate-700">${titre} ${index}</h3>
-      <input type="text" id="${prefix}-nom-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="NOM Prénom">
+    <div class="vendeur-item space-y-4 p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg border-2 border-slate-200 shadow-sm mb-4" data-index="${index}">
+      <h3 class="font-semibold text-slate-700">Vendeur ${index}</h3>
+      <input type="text" id="vendeur-nom-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="NOM Prénom">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <input type="number" id="${prefix}-numero-${index}" required min="1" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="N°">
-        <input type="text" id="${prefix}-voie-${index}" required class="md:col-span-3 w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="Nom de voie">
+        <input type="number" id="vendeur-numero-${index}" required min="1" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="N°">
+        <input type="text" id="vendeur-voie-${index}" required class="md:col-span-3 w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="Nom de voie">
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input type="text" id="${prefix}-cp-${index}" required pattern="[0-9]{5}" maxlength="5" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="75001" oninput="loadCities('${prefix}',${index},this.value)">
-        <select id="${prefix}-ville-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg cursor-pointer">
+        <input type="text" id="vendeur-cp-${index}" required pattern="[0-9]{5}" maxlength="5" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="75001" oninput="loadCities('vendeur',${index},this.value)">
+        <select id="vendeur-ville-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg cursor-pointer">
           <option value="">Ville</option>
         </select>
       </div>
     </div>`;
 }
 
-function creerFormulaireVendeur(i) { return creerPersonne('vendeur', i, 'Vendeur'); }
-function creerFormulaireAcquereur(i) { return creerPersonne('acquereur', i, 'Acquéreur'); }
+function creerFormulaireAcquereur(index) {
+  return `
+    <div class="acquereur-item space-y-4 p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg border-2 border-slate-200 shadow-sm mb-4" data-index="${index}">
+      <h3 class="font-semibold text-slate-700">Acquéreur ${index}</h3>
+      <input type="text" id="acquereur-nom-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="NOM Prénom">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <input type="number" id="acquereur-numero-${index}" required min="1" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="N°">
+        <input type="text" id="acquereur-voie-${index}" required class="md:col-span-3 w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="Nom de voie">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" id="acquereur-cp-${index}" required pattern="[0-9]{5}" maxlength="5" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="75001" oninput="loadCities('acquereur',${index},this.value)">
+        <select id="acquereur-ville-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg cursor-pointer">
+          <option value="">Ville</option>
+        </select>
+      </div>
+    </div>`;
+}
 
 function initialiserFormulaires() {
   document.getElementById('vendeurs-container').innerHTML = creerFormulaireVendeur(1);
@@ -201,7 +192,7 @@ function formatDateFR(d) {
   return j + '/' + m + '/' + date.getFullYear();
 }
 
-// ENVOI EMAIL + PDF (CORRIGÉ À 100%)
+// === FONCTION IDENTIQUE AU FORMULAIRE LOCATION QUI MARCHE ===
 async function submitAndPrint() {
   const form = document.getElementById('demande-form');
   if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -212,25 +203,25 @@ async function submitAndPrint() {
   btn.textContent = 'Envoi en cours...';
   msg.classList.add('hidden');
 
-  // Petite pause pour être sûr que les champs dynamiques sont bien rendus
+  // Pause courte pour laisser le DOM se mettre à jour
   await new Promise(r => setTimeout(r, 150));
 
   let vendeursTxt = '';
   document.querySelectorAll('.vendeur-item').forEach((el, i) => {
     const idx = el.dataset.index;
-    const nom = document.getElementById('vendeur-nom-'+idx)?.value.trim() || 'Non renseigné';
+    const nom = document.getElementById('vendeur-nom-'+idx)?.value.trim() || '';
     const adr = (document.getElementById('vendeur-numero-'+idx)?.value.trim() || '') + ' ' + (document.getElementById('vendeur-voie-'+idx)?.value.trim() || '');
     const ville = (document.getElementById('vendeur-cp-'+idx)?.value.trim() || '') + ' ' + (document.getElementById('vendeur-ville-'+idx)?.value.trim() || '');
-    vendeursTxt += (i > 0 ? '\n\n' : '') + `Vendeur ${i+1} :\n${nom}\n${adr}\n${ville}`;
+    vendeursTxt += (i>0 ? '\n\n' : '') + `Vendeur ${i+1} :\n${nom}\n${adr}\n${ville}`;
   });
 
   let acquereursTxt = '';
   document.querySelectorAll('.acquereur-item').forEach((el, i) => {
     const idx = el.dataset.index;
-    const nom = document.getElementById('acquereur-nom-'+idx)?.value.trim() || 'Non renseigné';
+    const nom = document.getElementById('acquereur-nom-'+idx)?.value.trim() || '';
     const adr = (document.getElementById('acquereur-numero-'+idx)?.value.trim() || '') + ' ' + (document.getElementById('acquereur-voie-'+idx)?.value.trim() || '');
     const ville = (document.getElementById('acquereur-cp-'+idx)?.value.trim() || '') + ' ' + (document.getElementById('acquereur-ville-'+idx)?.value.trim() || '');
-    acquereursTxt += (i > 0 ? '\n\n' : '') + `Acquéreur ${i+1} :\n${nom}\n${adr}\n${ville}`;
+    acquereursTxt += (i>0 ? '\n\n' : '') + `Acquéreur ${i+1} :\n${nom}\n${adr}\n${ville}`;
   });
 
   const params = {
@@ -263,13 +254,13 @@ async function submitAndPrint() {
   }
 }
 
-// PDF (CORRIGÉ À 100% - sans backticks)
+// PDF IDENTIQUE AU FORMULAIRE LOCATION
 function printForm() {
   let vendeursTxt = '', acquereursTxt = '';
 
   document.querySelectorAll('.vendeur-item').forEach((el,i) => {
     const idx = el.dataset.index;
-    const nom = document.getElementById('vendeur-nom-'+idx)?.value || 'Non renseigné';
+    const nom = document.getElementById('vendeur-nom-'+idx)?.value || '';
     const adr = (document.getElementById('vendeur-numero-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-voie-'+idx)?.value || '');
     const ville = (document.getElementById('vendeur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-ville-'+idx)?.value || '');
     vendeursTxt += (i>0 ? '\n\n' : '') + 'Vendeur '+(i+1)+' :\n'+nom+'\n'+adr+'\n'+ville;
@@ -277,10 +268,10 @@ function printForm() {
 
   document.querySelectorAll('.acquereur-item').forEach((el,i) => {
     const idx = el.dataset.index;
-    const nom = document.getElementById('acquereur-nom-'+idx)?.value || 'Non renseigné';
+    const nom = document.getElementById('acquereur-nom-'+idx)?.value || '';
     const adr = (document.getElementById('acquereur-numero-'+idx)?.value || '') + ' ' + (document.getElementById('acquereur-voie-'+idx)?.value || '');
     const ville = (document.getElementById('acquereur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('acquereur-ville-'+idx)?.value || '');
-    acquereursTxt += (i>0 ? '\n\n' : '') + 'Acquéreur '+(i+1)+' :\n'+nom+'\n'+adr+'\n'+adr+'\n'+ville;
+    acquereursTxt += (i>0 ? '\n\n' : '') + 'Acquéreur '+(i+1)+' :\n'+nom+'\n'+adr+'\n'+ville;
   });
 
   const data = {
@@ -320,17 +311,17 @@ function printForm() {
   w.print();
 }
 
-// Activation
+// Activation + init
 document.getElementById('print-btn').addEventListener('click', submitAndPrint);
 
 window.addEventListener('load', () => {
   initialiserFormulaires();
-  if (window.elementSdk) { /* ton code si besoin */ }
+  if (window.elementSdk) { /* ton code */ }
   if (window.dataSdk) { window.dataSdk.init({ onDataChanged: () => {} }); }
 });
 </script>
 
-<!-- Cloudflare (à garder à la toute fin) -->
+<!-- Cloudflare à la toute fin -->
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a92b958f15a018c',t:'MTc2NDkyOTExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
