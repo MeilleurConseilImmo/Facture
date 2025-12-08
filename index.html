@@ -86,16 +86,28 @@
             <input type="text" id="numero-mandat" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : V-2025-012">
           </div>
 
-          <!-- 7. Vendeurs
+                    <!-- 7. Vendeurs -->
           <div class="md:col-span-2">
             <div class="flex justify-between items-center mb-3">
               <label class="block text-sm font-semibold text-slate-700">7. Nom et adresse des vendeurs *</label>
               <div class="flex gap-2">
-                <button type="button" onclick="ajouterVendeur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter</button>
-                <button type="button" onclick="supprimerVendeur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg">Retirer</button>
+                <button type="button" onclick="ajouterVendeur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Ajouter</button>
+                <button type="button" onclick="supprimerVendeur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Retirer</button>
               </div>
             </div>
             <div id="vendeurs-container"></div>
+          </div>
+
+          <!-- 8. Acquéreurs -->
+          <div class="md:col-span-2">
+            <div class="flex justify-between items-center mb-3">
+              <label class="block text-sm font-semibold text-slate-700">8. Nom et adresse des acquéreurs *</label>
+              <div class="flex gap-2">
+                <button type="button" onclick="ajouterAcquereur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Ajouter</button>
+                <button type="button" onclick="supprimerAcquereur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Retirer</button>
+              </div>
+            </div>
+            <div id="acquereurs-container"></div>
           </div>
 
           <!-- 8. Acquéreurs -->
