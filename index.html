@@ -11,9 +11,7 @@
   <!-- EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
-    (function(){
-      emailjs.init("GTCxl9iC3ip-pxBrx");
-    })();
+    (function(){ emailjs.init("GTCxl9iC3ip-pxBrx"); })();
   </script>
 
   <style>
@@ -23,18 +21,15 @@
 </head>
 <body class="min-h-full bg-gradient-to-br from-slate-50 to-blue-50 p-6">
 
-  <!-- Logo fixe -->
-  <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-    <img src="logomci.png" alt="Logo MCI" style="width: 120px; height: 120px; display: block;" onerror="this.style.display='none';">
+  <div style="position:fixed;top:20px;left:20px;z-index:1000;">
+    <img src="logomci.png" alt="Logo MCI" style="width:120px;height:120px;" onerror="this.style.display='none'">
   </div>
 
   <main class="max-w-4xl mx-auto">
     <header class="bg-white rounded-lg shadow-lg p-8 mb-6">
       <h1 class="text-3xl font-bold text-slate-800 mb-4">Demande de facture - Acte authentique</h1>
       <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
-        <p class="text-sm text-slate-700 leading-relaxed">
-          Dans le cadre de la préparation de la signature de l'acte authentique, merci de compléter avec exactitude l'intégralité du formulaire ci-dessous.
-        </p>
+        <p class="text-sm text-slate-700">Dans le cadre de la préparation de la signature de l'acte authentique, merci de compléter avec exactitude l'intégralité du formulaire ci-dessous.</p>
       </div>
       <div class="bg-amber-50 border-l-4 border-amber-500 p-4">
         <p class="text-sm font-semibold text-slate-800 mb-2">Informations importantes :</p>
@@ -51,120 +46,112 @@
       <form id="demande-form" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <!-- 1. Mandataire (sans email) -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">1. Nom et prénom du mandataire *</label>
-            <input type="text" id="nom-mandataire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" placeholder="Nom et prénom complets">
+            <input type="text" id="nom-mandataire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Nom et prénom complets">
           </div>
 
-          <!-- 2. Date signature acte -->
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">2. Date de signature de l'acte authentique *</label>
-            <input type="date" id="date-signature" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all">
+            <input type="date" id="date-signature" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
           </div>
 
-          <!-- 3. Honoraires TTC -->
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">3. Honoraires TTC *</label>
-            <input type="text" id="honoraires-ttc" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" placeholder="Ex : 8 400,00 €">
+            <input type="text" id="honoraires-ttc" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : 8 400,00 €">
           </div>
 
-          <!-- 4. Charge -->
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">4. Charge *</label>
-            <select id="charge" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all">
+            <select id="charge" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
               <option value="">Choisir...</option>
               <option value="Acquéreur">Acquéreur</option>
               <option value="Vendeur">Vendeur</option>
             </select>
           </div>
 
-          <!-- 5. Désignation bien -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">5. Désignation et adresse du bien *</label>
-            <textarea id="designation-bien" required rows="3" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"></textarea>
+            <textarea id="designation-bien" required rows="3" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"></textarea>
           </div>
 
-          <!-- 6. Numéro mandat -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">6. Numéro du mandat *</label>
-            <input type="text" id="text" id="numero-mandat" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" placeholder="Ex : V-2025-012">
+            <input type="text" id="numero-mandat" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : V-2025-012">
           </div>
 
-          <!-- 7. Vendeurs -->
+          <!-- Vendeurs -->
           <div class="md:col-span-2">
             <div class="flex justify-between items-center mb-3">
               <label class="block text-sm font-semibold text-slate-700">7. Nom et adresse des vendeurs *</label>
               <div class="flex gap-2">
-                <button type="button" onclick="ajouterVendeur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Ajouter</button>
-                <button type="button" onclick="supprimerVendeur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Retirer</button>
+                <button type="button" onclick="ajouterVendeur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter</button>
+                <button type="button" onclick="supprimerVendeur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg">Retirer</button>
               </div>
             </div>
             <div id="vendeurs-container"></div>
           </div>
 
-          <!-- 8. Acquéreurs -->
+          <!-- Acquéreurs -->
           <div class="md:col-span-2">
             <div class="flex justify-between items-center mb-3">
               <label class="block text-sm font-semibold text-slate-700">8. Nom et adresse des acquéreurs *</label>
               <div class="flex gap-2">
-                <button type="button" onclick="ajouterAcquereur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Ajouter</button>
-                <button type="button" onclick="supprimerAcquereur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all shadow-sm">Retirer</button>
+                <button type="button" onclick="ajouterAcquereur()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter</button>
+                <button type="button" onclick="supprimerAcquereur()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg">Retirer</button>
               </div>
             </div>
             <div id="acquereurs-container"></div>
           </div>
 
-          <!-- 9. Notaire -->
           <div class="md:col-span-2">
-            <label class="block text-sm font-semibold text-slate-700 mb-2">9. Nom et email du notaire rédacteur de l'acte *</label>
-            <input type="text" id="nom-notaire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" placeholder="Maître DUPONT - email@notaire.fr">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">9. Nom et email du notaire *</label>
+            <input type="text" id="nom-notaire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Maître DUPONT - email@notaire.fr">
           </div>
         </div>
 
-        <!-- Bouton -->
         <div class="pt-6 border-t border-slate-200">
           <div class="bg-slate-50 rounded-lg p-4 mb-4">
             <p class="text-sm text-slate-700 text-center">À transmettre par mail : <span class="font-semibold text-blue-600">admin@meilleurconseil-immo.com</span></p>
           </div>
-          <button type="button" id="print-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl">
+          <button type="button" id="print-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg shadow-lg">
             Générer le PDF / Imprimer + Envoyer l'email
           </button>
-          <div id="message" class="mt-4 p-4 rounded-lg hidden"></div>
+          <div id="message" class="mt-4 p-4 rounded-lg hidden text-center font-semibold"></div>
         </div>
       </form>
     </div>
   </main>
 
 <script>
-// === VARIABLES ===
+// Variables
 let vendeurCount = 1;
 let acquereurCount = 1;
 
-// === FORMULAIRES DYNAMIQUES ===
-function creerFormulaireVendeur(index) {
+// Création des blocs vendeur/acquéreur
+function creerPersonne(type, index, titre) {
+  const t = type === 'vendeur' ? 'vendeur' : 'acquereur';
+  const T = type === 'vendeur' ? 'Vendeur' : 'Acquéreur';
   return `
-    <div class="vendeur-item space-y-4 p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg border-2 border-slate-200 shadow-sm mb-4" data-index="${index}">
-      <h3 class="font-semibold text-slate-700">Vendeur ${index}</h3>
-      <input type="text" id="vendeur-nom-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="NOM Prénom">
+    <div class="${t}-item space-y-4 p-6 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg border-2 border-slate-200 shadow-sm mb-4" data-index="${index}">
+      <h3 class="font-semibold text-slate-700">${T} ${index}</h3>
+      <input type="text" id="${t}-nom-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="NOM Prénom">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <input type="number" id="vendeur-numero-${index}" required min="1" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="N°">
-        <input type="text" id="vendeur-voie-${index}" required class="md:col-span-3 w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="Nom de voie">
+        <input type="number" id="${t}-numero-${index}" required min="1" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="N°">
+        <input type="text" id="${t}-voie-${index}" required class="md:col-span-3 w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="Nom de voie">
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input type="text" id="vendeur-cp-${index}" required pattern="[0-9]{5}" maxlength="5" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="75001" oninput="loadCities('vendeur',${index},this.value)">
-        <select id="vendeur-ville-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg cursor-pointer">
+        <input type="text" id="${t}-cp-${index}" required pattern="[0-9]{5}" maxlength="5" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg" placeholder="75001" oninput="loadCities('${t}',${index},this.value)">
+        <select id="${t}-ville-${index}" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg cursor-pointer">
           <option value="">Ville</option>
         </select>
       </div>
     </div>`;
 }
 
-function creerFormulaireAcquereur(index) {
-  return creerFormulaireVendeur(index).replace(/vendeur/g, 'acquereur').replace(/Vendeur/g, 'Acquéreur');
-}
+function creerFormulaireVendeur(index) { return creerPersonne('vendeur', index, 'Vendeur'); }
+function creerFormulaireAcquereur(index) { return creerPersonne('acquereur', index, 'Acquéreur'); }
 
-// Initialisation
 function initialiserFormulaires() {
   document.getElementById('vendeurs-container').innerHTML = creerFormulaireVendeur(1);
   document.getElementById('acquereurs-container').innerHTML = creerFormulaireAcquereur(1);
@@ -177,25 +164,25 @@ function supprimerAcquereur() { if (acquereurCount > 1) { document.querySelector
 
 async function loadCities(type, index, cp) {
   const select = document.getElementById(type + '-ville-' + index);
-  if (cp.length !== 5) { select.innerHTML = '<option>Ville</option>'; return; }
+  if (cp.length !== 5) { select.innerHTML = '<option value="">Code postal (5 chiffres)</option>'; return; }
   select.innerHTML = '<option>Chargement...</option>';
   try {
-    const r = await fetch('https://geo.api.gouv.fr/communes?codePostal=' + cp);
+    const r = await fetch('https://geo.api.gouv.fr/communes?codePostal=' + cp + '&fields=nom&limit=30');
     const data = await r.json();
-    select.innerHTML = '<option value="">Choisir</option>';
-    data.forEach(c => { const o = new Option(c.nom, c.nom); select.add(o); });
-  } catch { select.innerHTML = '<option>Erreur</option>'; }
+    select.innerHTML = '<option value="">Choisir la ville</option>';
+    data.forEach(c => select.add(new Option(c.nom, c.nom)));
+  } catch { select.innerHTML = '<option>Erreur chargement</option>'; }
 }
 
-function formatDateFR(d) {
-  if (!d) return '';
-  const date = new Date(d);
-  const j = String(date.getDate()).padStart(2,'0');
-  const m = String(date.getMonth()+1).padStart(2,'0');
-  return j + '/' + m + '/' + date.getFullYear();
+function formatDateFR(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  const j = String(d.getDate()).padStart(2,'0');
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  return j + '/' + m + '/' + d.getFullYear();
 }
 
-// === FONCTION PDF + EMAIL ===
+// ENVOI EMAIL + PDF
 async function submitAndPrint() {
   const form = document.getElementById('demande-form');
   if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -206,24 +193,27 @@ async function submitAndPrint() {
   btn.textContent = 'Envoi en cours...';
   msg.classList.add('hidden');
 
-  // Récup données vendeurs / acquéreurs
-  let vendeursTxt = '', acquereursTxt = '';
-  document.querySelectorAll('.vendeur-item').forEach((el,i) => {
+  // Récupération vendeurs
+  let vendeursTxt = '';
+  document.querySelectorAll('.vendeur-item').forEach((el, i) => {
     const idx = el.dataset.index;
-    const n = document.getElementById('vendeur-nom-'+idx).value;
-    const a = document.getElementById('vendeur-numero-'+idx).value + ' ' + document.getElementById('vendeur-voie-'+idx).value;
-    const v = document.getElementById('vendeur-cp-'+idx).value + ' ' + document.getElementById('vendeur-ville-'+idx).value;
-    vendeursTxt += (i>0 ? '\n\n' : '') + 'Vendeur '+(i+1)+' :\n'+n+'\n'+a+'\n'+v;
-  });
-  document.querySelectorAll('.acquereur-item').forEach((el,i) => {
-    const idx = el.dataset.index;
-    const n = document.getElementById('acquereur-nom-'+idx).value;
-    const a = document.getElementById('acquereur-numero-'+idx).value + ' ' + document.getElementById('acquereur-voie-'+idx).value;
-    const v = document.getElementById('acquereur-cp-'+idx).value + ' ' + document.getElementById('acquereur-ville-'+idx).value;
-    acquereursTxt += (i>0 ? '\n\n' : '') + 'Acquéreur '+(i+1)+' :\n'+n+'\n'+a+'\n'+v;
+    const nom = document.getElementById('vendeur-nom-'+idx)?.value || '';
+    const adresse = (document.getElementById('vendeur-numero-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-voie-'+idx)?.value || '');
+    const ville = (document.getElementById('vendeur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-ville-'+idx)?.value || '');
+    vendeursTxt += (i>0 ? '\n\n' : '') + 'Vendeur '+(i+1)+' :\n'+nom+'\n'+adresse+'\n'+ville;
   });
 
-  const templateParams = {
+  // Récupération acquéreurs
+  let acquereursTxt = '';
+  document.querySelectorAll('.acquereur-item').forEach((el, i) => {
+    const idx = el.dataset.index;
+    const nom = document.getElementById('acquereur-nom-'+idx)?.value || '';
+    const adresse = (document.getElementById('acquereur-numero-'+idx)?.value || '') + ' ' + (document.getElementById('acquereur-voie-'+idx)?.value || '');
+    const ville = (document.getElementById('acquereur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('acquereur-ville-'+idx)?.value || '');
+    acquereursTxt += (i>0 ? '\n\n' : '') + 'Acquéreur '+(i+1)+' :\n'+nom+'\n'+adresse+'\n'+ville;
+  });
+
+  const params = {
     nom_mandataire: document.getElementById('nom-mandataire').value,
     date_signature: formatDateFR(document.getElementById('date-signature').value),
     honoraires_ttc: document.getElementById('honoraires-ttc').value,
@@ -236,17 +226,14 @@ async function submitAndPrint() {
   };
 
   try {
-    await emailjs.send('service_gmail', 'template_1m7q0si', templateParams);  // ton template notaire
-
-    msg.innerHTML = '<p class="text-green-800 font-bold">Email envoyé avec succès !</p><p class="text-sm text-green-700">Le PDF s\'ouvre aussi.</p>';
+    await emailjs.send('service_gmail', 'template_1m7q0si', params);
+    msg.innerHTML = '<span class="text-green-700">Email envoyé avec succès !</span><br>Le PDF s\'ouvre...';
     msg.className = 'mt-4 p-4 bg-green-50 border-l-4 border-green-500 rounded-lg';
     msg.classList.remove('hidden');
-
     printForm();
-
   } catch (e) {
-    let err = e.text || e.message || 'Erreur';
-    msg.innerHTML = '<p class="text-red-800 font-bold">Erreur d\'envoi</p><p class="text-sm text-red-700">'+err+'</p>';
+    console.error(e);
+    msg.innerHTML = '<span class="text-red-700">Erreur envoi email : ' + (e.text || e.message || 'inconnue') + '</span>';
     msg.className = 'mt-4 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg';
     msg.classList.remove('hidden');
     printForm();
@@ -256,26 +243,8 @@ async function submitAndPrint() {
   }
 }
 
-// === IMPRESSION PDF (sans backticks) ===
+// PDF (sans backticks = zéro erreur)
 function printForm() {
-  if (!document.getElementById('demande-form').checkValidity()) return;
-
-  let vendeursTxt = '', acquereursTxt = '';
-  document.querySelectorAll('.vendeur-item').forEach((el,i) => {
-    const idx = el.dataset.index;
-    const n = document.getElementById('vendeur-nom-'+idx).value;
-    const a = document.getElementById('vendeur-numero-'+idx).value + ' ' + document.getElementById('vendeur-voie-'+idx).value;
-    const v = document.getElementById('vendeur-cp-'+idx).value + ' ' + document.getElementById('vendeur-ville-'+idx).value;
-    vendeursTxt += (i>0 ? '\n\n' : '') + 'Vendeur '+(i+1)+' :\n'+n+'\n'+a+'\n'+v;
-  });
-  document.querySelectorAll('.acquereur-item').forEach((el,i) => {
-    const idx = el.dataset.index;
-    const n = document.getElementById('acquereur-nom-'+idx).value;
-    const a = document.getElementById('acquereur-numero-'+idx).value + ' ' + document.getElementById('acquereur-voie-'+idx).value;
-    const v = document.getElementById('acquereur-cp-'+idx).value + ' ' + document.getElementById('acquereur-ville-'+idx).value;
-    acquereursTxt += (i>0 ? '\n\n' : '') + 'Acquéreur '+(i+1)+' :\n'+n+'\n'+a+'\n'+v;
-  });
-
   const data = {
     mandataire: document.getElementById('nom-mandataire').value,
     date: formatDateFR(document.getElementById('date-signature').value),
@@ -283,19 +252,34 @@ function printForm() {
     charge: document.getElementById('charge').value,
     bien: document.getElementById('designation-bien').value,
     mandat: document.getElementById('numero-mandat').value,
-    vendeurs: vendeursTxt,
-    acquereurs: acquereursTxt,
+    vendeurs: '',
+    acquereurs: '',
     notaire: document.getElementById('nom-notaire').value
   };
 
+  document.querySelectorAll('.vendeur-item').forEach((el,i) => {
+    const idx = el.dataset.index;
+    const nom = document.getElementById('vendeur-nom-'+idx)?.value || '';
+    const adr = (document.getElementById('vendeur-numero-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-voie-'+idx)?.value || '');
+    const ville = (document.getElementById('vendeur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-ville-'+idx)?.value || '');
+    data.vendeurs += (i>0 ? '\n\n' : '') + 'Vendeur '+(i+1)+' :\n'+nom+'\n'+adr+'\n'+ville;
+  });
+
+  document.querySelectorAll('.acquereur-item').forEach((el,i) => {
+    const idx = el.dataset.index;
+    const nom = document.getElementById('acquereur-nom-'+idx)?.value || '';
+    const adr = (document.getElementById('acquereur-numero-'+idx)?.value || '') + ' ' + (document.getElementById('acquereur-voie-'+idx)?.value || '');
+    const ville = (document.getElementById('acquereur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('acquereur-ville-'+idx)?.value || '');
+    data.acquereurs += (i>0 ? '\n\n' : '') + 'Acquéreur '+(i+1)+' :\n'+nom+'\n'+adr+'\n'+ville;
+  });
+
   const w = window.open('', '_blank');
   w.document.write(
-    '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Demande de facture - Acte authentique</title>' +
+    '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Demande facture acte</title>' +
     '<style>body{font-family:Arial,sans-serif;padding:40px 20px;color:#333;font-size:11px;line-height:1.5;}' +
     '.logo{position:absolute;top:20px;left:20px;width:266px;height:60px;}' +
     '.header{text-align:center;margin:160px auto 30px;border-bottom:2px solid #2563eb;padding-bottom:10px;}' +
-    '.s{margin:20px 0;}.l{font-weight:bold;}.v{background:#f8fafc;padding:8px;border-left:3px solid #2563eb;white-space:pre-line;}' +
-    '</style></head><body>' +
+    '.s{margin:20px 0;}.l{font-weight:bold;}.v{background:#f8fafc;padding:8px;border-left:3px solid #2563eb;white-space:pre-line;}</style></head><body>' +
     '<img src="logo-impression.png" class="logo" onerror="this.style.display=\'none\'">' +
     '<div class="header"><h1>Demande de facture - Acte authentique</h1></div>' +
     '<div class="s"><div class="l">Mandataire</div><div class="v">'+data.mandataire+'</div></div>' +
@@ -314,17 +298,17 @@ function printForm() {
   w.print();
 }
 
-// Activation
+// Activation bouton + init
 document.getElementById('print-btn').addEventListener('click', submitAndPrint);
 
 window.addEventListener('load', () => {
   initialiserFormulaires();
-  if (window.elementSdk) { /* ton code elementSdk */ }
+  if (window.elementSdk) { /* ton code elementSdk ici si besoin */ }
   if (window.dataSdk) { window.dataSdk.init({ onDataChanged: () => {} }); }
 });
 </script>
 
-<!-- Script Cloudflare (à garder tel quel) -->
+<!-- Cloudflare à la toute fin (obligatoire) -->
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a92b958f15a018c',t:'MTc2NDkyOTExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
