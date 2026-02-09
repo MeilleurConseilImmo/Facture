@@ -7,24 +7,20 @@
   <script src="/_sdk/data_sdk.js"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function(){ emailjs.init("GTCxl9iC3ip-pxBrx"); })();
   </script>
-
   <style>
     body { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     @view-transition { navigation: auto; }
   </style>
 </head>
 <body class="min-h-full bg-gradient-to-br from-slate-50 to-blue-50 p-6">
-
   <div style="position:fixed;top:20px;left:20px;z-index:1000;">
     <img src="logomci.png" alt="Logo MCI" style="width:120px;height:120px;" onerror="this.style.display='none'">
   </div>
-
   <main class="max-w-4xl mx-auto">
     <header class="bg-white rounded-lg shadow-lg p-8 mb-6">
       <h1 class="text-3xl font-bold text-slate-800 mb-4">Demande de facture - Acte authentique</h1>
@@ -41,27 +37,21 @@
         </ul>
       </div>
     </header>
-
     <div class="bg-white rounded-lg shadow-lg p-8">
       <form id="demande-form" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <!-- 1. Mandataire (sans email) -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">1. Nom et prénom du mandataire *</label>
             <input type="text" id="nom-mandataire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Nom et prénom complets">
           </div>
-
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">2. Date de signature de l'acte *</label>
             <input type="date" id="date-signature" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
           </div>
-
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">3. Honoraires TTC *</label>
             <input type="text" id="honoraires-ttc" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : 8 400,00 €">
           </div>
-
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">4. Charge *</label>
             <select id="charge" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
@@ -71,9 +61,14 @@
             </select>
           </div>
 
+          <!-- Champs séparés -->
           <div class="md:col-span-2">
-            <label class="block text-sm font-semibold text-slate-700 mb-2">5. Désignation et adresse du bien *</label>
-            <textarea id="designation-bien" required rows="3" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200"></textarea>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">5. Désignation du bien *</label>
+            <input type="text" id="designation-bien" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : Appartement T3 - 3 pièces - 68 m²">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Adresse complète du bien *</label>
+            <textarea id="adresse-bien" required rows="2" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="12 rue des Lilas\n75015 Paris"></textarea>
           </div>
 
           <div class="md:col-span-2">
@@ -81,7 +76,6 @@
             <input type="text" id="numero-mandat" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : V-2025-012">
           </div>
 
-          <!-- 7. Vendeurs - boutons en bas -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-4">7. Nom et adresse des vendeurs *</label>
             <div id="vendeurs-container"></div>
@@ -91,7 +85,6 @@
             </div>
           </div>
 
-          <!-- 8. Acquéreurs - boutons en bas -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-4">8. Nom et adresse des acquéreurs *</label>
             <div id="acquereurs-container"></div>
@@ -101,7 +94,6 @@
             </div>
           </div>
 
-          <!-- 9. Notaire -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">9. Nom et email du notaire *</label>
             <input type="text" id="nom-notaire" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Maître DUPONT - email@notaire.fr">
@@ -122,7 +114,6 @@
   </main>
 
 <script>
-// === IDENTIQUE AU FORMULAIRE LOCATION QUI FONCTIONNE PARFAITEMENT ===
 let vendeurCount = 1;
 let acquereurCount = 1;
 
@@ -192,7 +183,6 @@ function formatDateFR(d) {
   return j + '/' + m + '/' + date.getFullYear();
 }
 
-// === FONCTION IDENTIQUE AU FORMULAIRE LOCATION QUI MARCHE ===
 async function submitAndPrint() {
   const form = document.getElementById('demande-form');
   if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -202,8 +192,6 @@ async function submitAndPrint() {
   btn.disabled = true;
   btn.textContent = 'Envoi en cours...';
   msg.classList.add('hidden');
-
-  // Pause courte pour laisser le DOM se mettre à jour
   await new Promise(r => setTimeout(r, 150));
 
   let vendeursTxt = '';
@@ -230,6 +218,7 @@ async function submitAndPrint() {
     honoraires_ttc: document.getElementById('honoraires-ttc').value,
     charge: document.getElementById('charge').value,
     designation_bien: document.getElementById('designation-bien').value,
+    adresse_bien: document.getElementById('adresse-bien').value,
     numero_mandat: document.getElementById('numero-mandat').value,
     vendeurs: vendeursTxt || 'Aucun vendeur',
     acquereurs: acquereursTxt || 'Aucun acquéreur',
@@ -254,10 +243,8 @@ async function submitAndPrint() {
   }
 }
 
-// PDF IDENTIQUE AU FORMULAIRE LOCATION
 function printForm() {
   let vendeursTxt = '', acquereursTxt = '';
-
   document.querySelectorAll('.vendeur-item').forEach((el,i) => {
     const idx = el.dataset.index;
     const nom = document.getElementById('vendeur-nom-'+idx)?.value || '';
@@ -265,7 +252,6 @@ function printForm() {
     const ville = (document.getElementById('vendeur-cp-'+idx)?.value || '') + ' ' + (document.getElementById('vendeur-ville-'+idx)?.value || '');
     vendeursTxt += (i>0 ? '\n\n' : '') + 'Vendeur '+(i+1)+' :\n'+nom+'\n'+adr+'\n'+ville;
   });
-
   document.querySelectorAll('.acquereur-item').forEach((el,i) => {
     const idx = el.dataset.index;
     const nom = document.getElementById('acquereur-nom-'+idx)?.value || '';
@@ -279,7 +265,8 @@ function printForm() {
     date: formatDateFR(document.getElementById('date-signature').value),
     honoraires: document.getElementById('honoraires-ttc').value,
     charge: document.getElementById('charge').value,
-    bien: document.getElementById('designation-bien').value,
+    designation: document.getElementById('designation-bien').value,
+    adresse: document.getElementById('adresse-bien').value,
     mandat: document.getElementById('numero-mandat').value,
     vendeurs: vendeursTxt || 'Aucun',
     acquereurs: acquereursTxt || 'Aucun',
@@ -299,7 +286,8 @@ function printForm() {
     '<div class="s"><div class="l">Date</div><div class="v">'+data.date+'</div></div>' +
     '<div class="s"><div class="l">Honoraires TTC</div><div class="v">'+data.honoraires+'</div></div>' +
     '<div class="s"><div class="l">Charge</div><div class="v">'+data.charge+'</div></div>' +
-    '<div class="s"><div class="l">Bien</div><div class="v">'+data.bien+'</div></div>' +
+    '<div class="s"><div class="l">Désignation du bien</div><div class="v">'+data.designation+'</div></div>' +
+    '<div class="s"><div class="l">Adresse du bien</div><div class="v">'+data.adresse+'</div></div>' +
     '<div class="s"><div class="l">Mandat</div><div class="v">'+data.mandat+'</div></div>' +
     '<div class="s"><div class="l">Vendeurs</div><div class="v">'+data.vendeurs+'</div></div>' +
     '<div class="s"><div class="l">Acquéreurs</div><div class="v">'+data.acquereurs+'</div></div>' +
@@ -311,7 +299,6 @@ function printForm() {
   w.print();
 }
 
-// Activation + init
 document.getElementById('print-btn').addEventListener('click', submitAndPrint);
 
 window.addEventListener('load', () => {
@@ -321,7 +308,7 @@ window.addEventListener('load', () => {
 });
 </script>
 
-<!-- Cloudflare à la toute fin -->
+<!-- Cloudflare -->
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a92b958f15a018c',t:'MTc2NDkyOTExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
