@@ -7,7 +7,6 @@
   <script src="/_sdk/data_sdk.js"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function(){ emailjs.init("GTCxl9iC3ip-pxBrx"); })();
@@ -21,6 +20,7 @@
   <div style="position:fixed;top:20px;left:20px;z-index:1000;">
     <img src="logomci.png" alt="Logo MCI" style="width:120px;height:120px;" onerror="this.style.display='none'">
   </div>
+
   <main class="max-w-4xl mx-auto">
     <header class="bg-white rounded-lg shadow-lg p-8 mb-6">
       <h1 class="text-3xl font-bold text-slate-800 mb-4">Demande de facture - Acte authentique</h1>
@@ -37,6 +37,7 @@
         </ul>
       </div>
     </header>
+
     <div class="bg-white rounded-lg shadow-lg p-8">
       <form id="demande-form" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -61,7 +62,6 @@
             </select>
           </div>
 
-          <!-- Champs séparés -->
           <div class="md:col-span-2">
             <label class="block text-sm font-semibold text-slate-700 mb-2">5. Désignation du bien *</label>
             <input type="text" id="designation-bien" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Ex : Appartement T3 - 3 pièces - 68 m²">
@@ -213,16 +213,16 @@ async function submitAndPrint() {
   });
 
   const params = {
-    nom_mandataire: document.getElementById('nom-mandataire').value,
+    nom_mandataire: document.getElementById('nom-mandataire').value.trim(),
     date_signature: formatDateFR(document.getElementById('date-signature').value),
-    honoraires_ttc: document.getElementById('honoraires-ttc').value,
+    honoraires_ttc: document.getElementById('honoraires-ttc').value.trim(),
     charge: document.getElementById('charge').value,
-    designation_bien: document.getElementById('designation-bien').value,
-    adresse_bien: document.getElementById('adresse-bien').value,
-    numero_mandat: document.getElementById('numero-mandat').value,
+    designation_bien: document.getElementById('designation-bien').value.trim(),
+    adresse_bien: document.getElementById('adresse-bien').value.trim(),
+    numero_mandat: document.getElementById('numero-mandat').value.trim(),
     vendeurs: vendeursTxt || 'Aucun vendeur',
     acquereurs: acquereursTxt || 'Aucun acquéreur',
-    nom_notaire: document.getElementById('nom-notaire').value
+    nom_notaire: document.getElementById('nom-notaire').value.trim()
   };
 
   try {
@@ -230,16 +230,15 @@ async function submitAndPrint() {
     msg.innerHTML = '<span class="text-green-700">Email envoyé avec succès !</span>';
     msg.className = 'mt-4 p-4 bg-green-50 border-l-4 border-green-500 rounded-lg';
     msg.classList.remove('hidden');
-    printForm();
   } catch (e) {
     console.error(e);
-    msg.innerHTML = '<span class="text-red-700">Erreur envoi email</span>';
+    msg.innerHTML = '<span class="text-red-700">Erreur lors de l\'envoi email</span>';
     msg.className = 'mt-4 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg';
     msg.classList.remove('hidden');
-    printForm();
   } finally {
     btn.disabled = false;
     btn.textContent = 'Générer le PDF / Imprimer + Envoyer l\'email';
+    printForm();
   }
 }
 
@@ -261,16 +260,16 @@ function printForm() {
   });
 
   const data = {
-    mandataire: document.getElementById('nom-mandataire').value,
+    mandataire: document.getElementById('nom-mandataire').value || '',
     date: formatDateFR(document.getElementById('date-signature').value),
-    honoraires: document.getElementById('honoraires-ttc').value,
-    charge: document.getElementById('charge').value,
-    designation: document.getElementById('designation-bien').value,
-    adresse: document.getElementById('adresse-bien').value,
-    mandat: document.getElementById('numero-mandat').value,
+    honoraires: document.getElementById('honoraires-ttc').value || '',
+    charge: document.getElementById('charge').value || '',
+    designation: document.getElementById('designation-bien').value || '',
+    adresse: document.getElementById('adresse-bien').value || '',
+    mandat: document.getElementById('numero-mandat').value || '',
     vendeurs: vendeursTxt || 'Aucun',
     acquereurs: acquereursTxt || 'Aucun',
-    notaire: document.getElementById('nom-notaire').value
+    notaire: document.getElementById('nom-notaire').value || ''
   };
 
   const w = window.open('', '_blank');
